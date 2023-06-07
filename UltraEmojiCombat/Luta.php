@@ -12,7 +12,7 @@ class Luta {
 
     // Métodos
     public function marcarLuta($l1, $l2) {
-        if ($l1.getCategoria() == $l2.getCategoria()
+        if ($l1->getCategoria() === $l2->getCategoria()
             && ($l1 != $l2)) {
                 $this->aprovada = true;
                 $this->desafiado = $l1;
@@ -31,25 +31,25 @@ class Luta {
             $vencedor = rand(0,2);
             switch($vencedor) {
                 case 0: // Empate
-                    echo "<p>Empate</p>";
+                    echo "<p>Empate!</p>";
                     $this->desafiado->empatarLuta();
                     $this->desafiante->empatarLuta();
                     break;
 
                 case 1: // Desafiado vence
-                    echo "<p>" . $this->desafiado->getNome()." venceu";
+                    echo "<p>" . $this->desafiado->getNome()." venceu!";
                     $this->desafiado->ganharLuta();
                     $this->desafiante->perderLuta();
                     break;
 
                 case 2: // Desafiante vence
-                    echo "<p>" . $this->desafiante->getNome()." venceu";
+                    echo "<p>" . $this->desafiante->getNome()." venceu!";
                     $this->desafiante->ganharLuta();
                     $this->desafiado->perderLuta();
                     break;
             }
         } else {
-            echo "<p>Luta não pode acontecer</p>";
+            echo "<p>Luta não pode acontecer!</p>";
         }
     }
 
